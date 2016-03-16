@@ -1,0 +1,105 @@
+// ==UserScript==
+// @name          test script for SZ Metro
+// @namespace  http://oa.szgdjt.com
+// @description  this is our test script 
+// @include       http://oa.szgdjt.com/*
+// @include       http://oa.sz-mtr.com/*
+// @exclude       http://diveintogreasemonkey.org/*
+// @exclude       http://www.diveintogreasemonkey.org/*
+// ==/UserScript==
+
+/*
+Possible Solutions
+1 document.createElement
+2 element create sub element
+
+a) create a div to list navigating URLs
+b) use current existing UI to list navigating URLs
+*/
+
+/*
+//==================================================================================================================
+//Solution a
+var main, newElement;
+main=document.getElementById("header");
+if (main){
+	//alert("found element layout");
+	newElement=document.createElement('div');
+	newElement.innerHTML='<div style="background-color:#aaaaaa;' +
+						'height:17px;">' +
+						'<p style="color:white;"> ' +
+						'Frequently Used Sites:  ' +
+	'<a href="http://portal.sz-mtr.com/" target="_blank" >Portal</a> ' +
+	'<a href="http://uuv.sz-mtr.com/" target="_blank" class="redlink">UUV</a> ' +	
+	'<a href="http://www.sz-mtr.com/" target="_blank" >WWW</a> ' +
+	'<a href="http://cs.sz-mtr.com/" target="_blank" >CS</a> ' +
+	'<a href="http://ebs.szgdjt.com:8000/" target="_blank" >EBS</a> ' +
+	'<a href="http://ebs.szgdjt.com:8030/" target="_blank" >EBS-UAT</a> ' +
+						'</p> </div>' ;
+	main.parentNode.insertBefore(newElement,main.nextSibling);
+}
+//==================================================================================================================
+*/
+
+//Solution b
+
+
+
+
+/*
+function r2()
+{
+    alert("OK");
+}
+setTimeout("r2()",2000);
+for(var i=0; i<divs.length; i++)
+{
+	//alert("innerHTML: ") + children[i].innerHTML;
+	if (divs[i].className=="info")
+		alert("Index: "+ i +"  ,"+ divs[i].toString());
+}
+*/
+//var divs=document.getElementsByTagName("div");
+//alert("class: " +divs[8].className);
+//divs[19].innerHTML+= "<p>test msg at target div</p>";
+
+var allDivs=document.evaluate("//*[@id="header"]/div[1]",
+							document,
+							null,
+							XPathResult.ANY_TYPE,
+							null);
+alert("Will get result: ");							
+/*
+var main, newElement;
+main=document.getElementById('header');
+if (main)
+{
+	newElement=document.createElement('div');
+	//need to specify more attributes to this element
+	
+	main.parentNode.insertBefore(newElement,main);
+	}
+	*/
+
+/*
+var allDivs, thisDiv;
+	allDivs = document.evaluate(
+	"//div[@class='info']",
+	document,
+	null,
+	XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+	null);
+	
+	alert("got div with name info " + allDivs.snapshotLength);
+	
+for (var i = 0; i < allDivs.snapshotLength; i++)
+{
+	thisDiv = allDivs.snapshotItem(i);
+	//use thisDiv
+	thisDiv.
+}
+*/
+
+
+
+
